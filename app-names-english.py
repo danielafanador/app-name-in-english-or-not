@@ -1,21 +1,32 @@
-def nonEnglish (string):
+apps_in_english = []
+apps_w_special_characters = []
+apps_not_in_english = []
     
+for app in list_of_csv[1:]:    
+    
+    name = app [0]
     counter = 0 
-    nonEnglishCounter = 0
+    nonEnglishCounter = 0    
     
-    for i in string:    
+    for i in name:    
         
         if ord(i) <= 127:
-            counter = counter + 1
-            
+            counter += 1
+
         elif ord(i)>= 127:
-            nonEnglishCounter = nonEnglishCounter + 1
+            nonEnglishCounter += 1
                     
-    if counter == len (string):
-        print ('The name of this App is in English.')
-            
+    if counter == len (name):
+        apps_in_english.append(name)
+        
+        
     elif nonEnglishCounter <= 2:
-        print ('The name of this App is in English, but may contain non-English characters or emojis.')
-            
+        apps_w_special_characters.append(name)
+    
     else:
-        print ('This App is not in English or may have unknown characters.')
+
+        apps_not_in_english.append(name)
+        
+#print (apps_in_english)
+#print (apps_w_special_characters)
+#print (apps_not_in_english)
